@@ -1,62 +1,40 @@
-import { renderHome } from "../views/home";
-import { renderLogin, setupLogin } from "../views/auth/login";
-import { renderRegister, setupRegister } from "../views/auth/register";
-import { renderDashboard, setupDashboard } from "../views/app/dashboard";
-import { renderTasks, setupTasksView } from "../views/tasks/tasks";
-import { renderTaskForm, setupTasksFormView } from "../views/tasks/taskForm";
-import { renderProfile, setupProfileView } from "../views/users/profile";
-import { renderAdmin, setupAdminView } from "../views/users/admin";
-import { renderNotFound } from "../views/notFound";
+import { Home } from "../views/home.js";
+import { notFound } from "../views/notFound.js";
 
 
 export const routes = {
     "/": {
-        render: renderHome,
+        render: Home,
         requiresAuth: false,
-    },
-    "/login": {
-        render: renderLogin,
-        setup: setupLogin,
-        requiresAuth: false,
-        redirectIfAuthenticated: true,
-    },
-    "/register": {
-        render: renderRegister,
-        setup: setupRegister,
-        requiresAuth: false,
-        redirectIfAuthenticated: true,
-    },
-    "/dashboard": {
-        render: renderDashboard,
-        setup: setupDashboard,
-        requiresAuth: true,
-    },
-    "/tasks": {
-        render: renderTasks,
-        requiresAuth: true,
-        setup: setupTasksView,
-    },
-    "/tasks/new": {
-        render: renderTaskForm,
-        requiresAuth: true,
-        setup: setupTasksFormView,
-    },
-    "/tasks/edit/:id": {
-        render: renderTaskForm,
-        requiresAuth: true,
-        setup: setupTasksFormView,
-    },
-    "/profile": {
-        render: renderProfile,
-        requiresAuth: true,
-        setup: setupProfileView,
-    },
-    "/admin": {
-        render: renderAdmin,
-        requiresAuth: true,
-        allowedRoles: ["ADMIN"],
-        setup: setupAdminView,
     }
+    // "/login": {
+    //     // render: renderLogin,
+    //     // setup: setupLogin,
+    //     // requiresAuth: false,
+    //     // redirectIfAuthenticated: true,
+    // },
+    // "/register": {
+    //     // render: renderRegister,
+    //     // setup: setupRegister,
+    //     // requiresAuth: false,
+    //     // redirectIfAuthenticated: true,
+    // },
+    // "/dashboard": {
+    //     // render: renderDashboard,
+    //     // setup: setupDashboard,
+    //     // requiresAuth: true,
+    // },
+    // "/profile": {
+    //     // render: renderProfile,
+    //     // requiresAuth: true,
+    //     // setup: setupProfileView,
+    // },
+    // "/admin": {
+    //     // render: renderAdmin,
+    //     // requiresAuth: true,
+    //     // allowedRoles: ["ADMIN"],
+    //     // setup: setupAdminView,
+    // }
 }
 
-export const notFoundView = renderNotFound;
+export const notFoundView = notFound;

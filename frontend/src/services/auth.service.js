@@ -1,6 +1,6 @@
 import { getUserByEmail } from "./user.service";
 import { showError } from "../utils/alerts";
-import bcrypt from "bcryptjs";
+
 
 
 
@@ -65,10 +65,7 @@ export async function loginUser({ email, password }) {
         throw new Error("No existe un usuario con este correo.");
     }
 
-    const isValidPassword = await bcrypt.compare(
-        trimmedPassword,
-        user.password
-    );
+   const isValidPassword = trimmedPassword === user.password;
 
     if (!isValidPassword) {
         showError("Contraseña incorrecta.");

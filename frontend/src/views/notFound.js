@@ -1,4 +1,4 @@
-export function renderNotFound() {
+export function notFound() {
   return `
     <main class="flex min-h-screen items-center justify-center px-6 py-10">
       <section class="w-full max-w-2xl rounded-[2rem] border border-blue-100 bg-white p-10 text-center shadow-xl shadow-blue-100/70">

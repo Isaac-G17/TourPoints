@@ -1,13 +1,9 @@
-import { getSession } from "../services/auth.service";
-import { notFoundView, routes } from "./routes";
+import { getSession } from "../services/auth.service.js";
+import { notFoundView, routes } from "./routes.js";
 
 function resolveRoute(pathname) {
   if (routes[pathname]) {
     return routes[pathname];
-  }
-
-  if (/^\/tasks\/edit\/[^/]+$/.test(pathname)) {
-    return routes["/tasks/edit/:id"];
   }
 
   return { render: notFoundView };
@@ -20,23 +16,23 @@ export function renderRoute() {
 
   const session = getSession()
 
-  if(route.redirectIfAuthenticated && session){
-    window.history.replaceState({},"","/dashboard")
-    renderRoute()
-    return
-  }
+  // if(route.redirectIfAuthenticated && session){
+  //   window.history.replaceState({},"","/dashboard")
+  //   renderRoute()
+  //   return
+  // }
 
-  if(route.requiresAuth && !session){
-    window.history.replaceState({}, "", "/login")
-    renderRoute()
-    return
-  }
+  // if(route.requiresAuth && !session){
+  //   window.history.replaceState({}, "", "/login")
+  //   renderRoute()
+  //   return
+  // }
 
-  if(route.allowedRoles && !route.allowedRoles.some((role) => session.roles?.includes(role))){
-    window.history.replaceState({}, "", "/dashboard")
-    renderRoute()
-    return
-  }
+  // if(route.allowedRoles && !route.allowedRoles.some((role) => session.roles?.includes(role))){
+  //   window.history.replaceState({}, "", "/dashboard")
+  //   renderRoute()
+  //   return
+  // }
 
   app.innerHTML = route.render();
 
