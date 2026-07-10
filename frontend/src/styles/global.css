@@ -1,5 +1,7 @@
-@import url(./organism/header.css);
 @import url(./atoms/button.css);
+@import url(./atoms/logo.css);
+@import url(./organism/header.css);
+@import url(./organism/footer.css);
 
 /* 1. Reinicio general (Reset/Normalize) */
 * {

@@ -1,9 +1,12 @@
-import  {header} from "../components/organism/header.js";
+import { header } from "../components/organism/header.js";
+import { footer } from "../components/organism/footer.js";
 
-export function Home(){
+export function Home() {
   return `
     ${header()}
     <main>
-     <h1>Bienvenido a TourPoints</h1>
-    </main>`;
+     
+    </main>
+    ${footer()}
+  `;
 }

@@ -1,0 +1,16 @@
+.logo {
+  font-family: var(--font-base);
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-principal);
+  text-decoration: none;
+  margin-right: 2rem;
+}
+
+.logo--blanco {
+  font-family: var(--font-base);
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-blanco);
+  text-decoration: none;
+}
